@@ -14,8 +14,8 @@ OR
 git@github.com:zhark0vv/yp-linter.git
 
 cd yp-linter
-cp .golangci.yml ~/YourProj.golangci.yml
-cp Taskfile.yml ~/YourProj.Taskfile.yml
+cp .golangci.yml ~/YourProj/.golangci.yml
+cp Taskfile.yml ~/YourProj/Taskfile.yml
 ```
 ## 1. Install a Package Manager
 
