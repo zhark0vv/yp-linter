@@ -43,6 +43,18 @@ Verify the installation:
 choco --version
 ```
 
+### Ubuntu:
+Ensure `snapd` is installed:
+```bash
+sudo apt update
+sudo apt install snapd
+```
+
+Verify the installation:
+```bash
+snap --version
+```
+
 ---
 
 ## 2. Install Task
@@ -59,6 +71,12 @@ brew install go-task/tap/go-task
 Install Task using Chocolatey:
 ```powershell
 choco install task
+```
+
+### Ubuntu:
+Install Task using the following commands:
+```bash
+sudo snap install task --classic
 ```
 
 For more installation methods, refer to the [Task installation documentation](https://taskfile.dev/#/installation).
