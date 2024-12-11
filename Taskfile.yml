@@ -30,7 +30,7 @@ tasks:
               . /etc/os-release
               if [ "$ID" = "ubuntu" ]; then
                 echo "Ubuntu detected. Installing golangci-lint using snap..."
-                sudo snap install golangci-lint
+                sudo snap install golangci-lint --classic
               else
                 echo "Linux detected, but not Ubuntu. Please install golangci-lint using your package manager."
                 echo "Examples:"
