@@ -18,12 +18,11 @@ linters-settings:
       - ifElseChain
       - octalLiteral
       - whyNoLint
-      - hugeParam
   gocyclo:
     min-complexity: 15
   goimports:
     local-prefixes: gitlab.diftech.org
-  gomnd:
+  mnd:
     checks:
       - argument
       - case
@@ -52,7 +51,6 @@ linters-settings:
     allow-unused: false
     require-explanation: true
     require-specific: true
-    forbid: true
   staticcheck:
     checks: ['all']
   stylecheck:
@@ -65,7 +63,7 @@ linters:
     - dogsled
     - dupl
     - errcheck
-    - exportloopref
+    - copyloopvar
     - funlen
     - gochecknoinits
     - goconst
@@ -73,7 +71,7 @@ linters:
     - gocyclo
     - gofmt
     - goimports
-    - gomnd
+    - mnd
     - goprintffuncname
     - gosec
     - gosimple
@@ -101,10 +99,12 @@ issues:
     - vendor
     - .git
     - build
+    - testdata
+    - examples
   exclude-rules:
     - path: _test\.go
       linters:
-        - gomnd
+        - mnd
         - dupl
         - lll
         - funlen
@@ -119,19 +119,12 @@ issues:
       text: "SA1019: settings.GoVersion is deprecated: use the global `run.go` instead."
     - path: pkg/lint/lintersdb/manager.go
       text: "SA1019: (.+).(GoVersion|LangVersion) is deprecated: use the global `run.go` instead."
-  ignore-tests: true # отключить проверки для тестовых файлов
 
 run:
   concurrency: 4
-  skip-dirs:
-    - testdata
-    - examples
   timeout: 2m
+  issues-exit-code: 0
 
 output:
-  format: tab
-  color: always
-  sort-results: true
-
-cache:
-  enabled: true
+  formats:
+    - format: colored-tab
