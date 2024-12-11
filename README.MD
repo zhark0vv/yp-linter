@@ -95,7 +95,7 @@ This command uses the `Taskfile.yml` to install `golangci-lint` based on your op
 ### Troubleshooting
 - **macOS**: Ensure Homebrew is installed if the task fails.
 - **Windows**: Ensure Chocolatey is installed if the task fails.
-- **Linux**: Refer to the [official golangci-lint installation guide](https://golangci-lint.run/usage/install/#install-from-linux-packages) for manual installation options.
+- **Linux**: Refer to the [official golangci-lint installation guide](https://golangci-lint.run/welcome/install/) for manual installation options.
 
 ---
 
