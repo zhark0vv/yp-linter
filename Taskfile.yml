@@ -1,0 +1,46 @@
+version: '3'
+
+tasks:
+    install-linter:
+      desc: Install golangci-lint based on the GOOS value from go env
+      cmds:
+        - |
+          GOOS=$(go env GOOS)
+          case "$GOOS" in
+            "windows")
+              if command -v choco > /dev/null; then
+                echo "Installing golangci-lint with Chocolatey..."
+                choco install golangci-lint
+              else
+                echo "Error: Chocolatey is not installed. Please install it first: https://chocolatey.org/install"
+                exit 1
+              fi
+              ;;
+            "darwin")
+              if command -v brew > /dev/null; then
+                echo "Installing golangci-lint with Homebrew..."
+                brew install golangci-lint
+              else
+                echo "Error: Homebrew is not installed. Please install it first: https://brew.sh/"
+                exit 1
+              fi
+              ;;
+            "linux")
+              echo "Linux detected. Please install golangci-lint using your package manager."
+              echo "Examples:"
+              echo "  apt: sudo apt install golangci-lint"
+              echo "  snap: sudo snap install golangci-lint"
+              echo "  yum: sudo yum install golangci-lint"
+              echo "  pacman: sudo pacman -S golangci-lint"
+              exit 1
+              ;;
+            *)
+              echo "Unsupported OS: $GOOS"
+              exit 1
+              ;;
+          esac
+    lint:
+        desc: Run linters using golangci-lint
+        cmds:
+          - golangci-lint run --config .golangci.yml
+        silent: true
