@@ -70,7 +70,7 @@ brew install go-task/tap/go-task
 ### Windows:
 Install Task using Chocolatey:
 ```powershell
-choco install task
+choco install go-task
 ```
 
 ### Ubuntu:
