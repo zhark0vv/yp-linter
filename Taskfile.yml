@@ -11,6 +11,7 @@ tasks:
             if command -v choco > /dev/null; then
               echo "Installing golangci-lint with Chocolatey..."
               choco install golangci-lint
+              exit 0
             else
               echo "Error: Chocolatey is not installed. Please install it first: https://chocolatey.org/install"
               exit 1
@@ -31,16 +32,19 @@ tasks:
               if [ "$ID" = "ubuntu" ]; then
                 echo "Ubuntu detected. Installing golangci-lint using snap..."
                 sudo snap install golangci-lint --classic
+                exit 0
               else
                 echo "Linux detected, but not Ubuntu. Please install golangci-lint using your package manager."
                 echo "Examples:"
                 echo "  apt: sudo apt install golangci-lint"
                 echo "  yum: sudo yum install golangci-lint"
                 echo "  pacman: sudo pacman -S golangci-lint"
+                exit 0
               fi
             else
               echo "Linux detected, but OS information could not be determined."
               echo "Please install golangci-lint using your package manager."
+              exit 0
             fi
             exit 1
             ;;
