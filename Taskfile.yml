@@ -54,11 +54,6 @@ tasks:
             exit 1
             ;;
         esac
-  lint:
-    desc: Run linters using golangci-lint
-    cmds:
-      - golangci-lint run --config .golangci.yml
-    silent: true
     lint:
         desc: Run linters using golangci-lint
         cmds:
