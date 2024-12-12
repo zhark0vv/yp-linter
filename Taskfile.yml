@@ -21,6 +21,7 @@ tasks:
             if command -v brew > /dev/null; then
               echo "Installing golangci-lint with Homebrew..."
               brew install golangci-lint
+              exit 0
             else
               echo "Error: Homebrew is not installed. Please install it first: https://brew.sh/"
               exit 1
