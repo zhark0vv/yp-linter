@@ -20,8 +20,6 @@ linters-settings:
       - whyNoLint
   gocyclo:
     min-complexity: 15
-  goimports:
-    local-prefixes: gitlab.diftech.org
   mnd:
     checks:
       - argument
