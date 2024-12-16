@@ -55,6 +55,9 @@ linters-settings:
     checks: ['all']
   stylecheck:
     checks: ['all']
+  gosec:
+    excludes:
+      - G115
 
 linters:
   disable-all: true
